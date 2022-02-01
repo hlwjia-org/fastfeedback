@@ -1,6 +1,6 @@
 import { auth } from '@/lib/firebase-admin';
 import { getAllFeedbackForSites } from '@/lib/db-admin';
-import { logger, formatObjectKeys } from '@/utils/logger';
+// import { logger, formatObjectKeys } from '@/utils/logger';
 
 export default async (req, res) => {
   try {
@@ -9,6 +9,7 @@ export default async (req, res) => {
 
     res.status(200).json({ feedback });
   } catch (error) {
+    /*
     logger.error(
       {
         request: {
@@ -22,7 +23,8 @@ export default async (req, res) => {
       },
       error.message
     );
-
     res.status(500).json({ error });
+    */
+    res.status(500).json({ msg: 'something went wrong' });
   }
 };
